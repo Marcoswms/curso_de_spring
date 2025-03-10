@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication //Anotação que define a porta de entrada do Spring boot e que concentrar as 3 anotações abaixo:
+
 //@Configuration - Permite métodos que define 'Bins'.
 //@EnableAutoConfiguration - Classe que vai ativar a autoconfiguração do SpringBoot
 //@ComponentScan - Permite que o Spring escaneie os pacote do nosso projeto em busca das classes de configuração,
