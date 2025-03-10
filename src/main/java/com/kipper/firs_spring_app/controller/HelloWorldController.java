@@ -1,5 +1,7 @@
 package com.kipper.firs_spring_app.controller;
 
+import com.kipper.firs_spring_app.service.HelloWorldService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,9 +29,21 @@ import org.springframework.web.bind.annotation.RestController;
                                  Neste caso será mapeado o caminho ("/hello-world")*/
 public class HelloWorldController {
 
+/* @Autowired -> Não há a necessidade de um construtor quando passamos esta anotação em uma dependência, pois fará
+                 a injeção de dependência automaticamente. */
+    @Autowired
+    private HelloWorldService helloWorldService; // Dependência privada e atributo para o contrutor
+
+/* Criar construtor para acessar o Service.
+   public HelloWorldController(HelloWorldService helloWorldService) {
+       this.helloWorldService = helloWorldService;
+   }
+  .Criando o construtor, o Spring instanciará a classe 'HelloWorldService' automaticamente, chamamos isso
+   de 'Injeção de Dependência'*/
+
     @GetMapping /*O método abaixo responderá as requisições de GET e "/hello-world", ou seja, mapeia o
                     caminho e PEGA(GET) o método helloWorld() */
     public String helloWorld() {
-        return "Hello World!";
+        return helloWorldService.helloWorld("Marcos");
     }
 }
