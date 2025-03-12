@@ -1,10 +1,10 @@
 package com.kipper.firs_spring_app.controller;
 
+import com.kipper.firs_spring_app.domain.User;
 import com.kipper.firs_spring_app.service.HelloWorldService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.web.bind.annotation.*;
 
 /* @RestController -> combina anotações de @Controller e @ResponseBody e indicará que esta Classe é um Controller Rest.
 
@@ -45,5 +45,15 @@ public class HelloWorldController {
                     caminho e PEGA(GET) o método helloWorld() */
     public String helloWorld() {
         return helloWorldService.helloWorld("Marcos");
+    }
+
+    @PostMapping("/{id}") // Mapear uma requisição de Post.
+    /*("/{id}") -> Indica o que virá da URL e neste caso, receberá a informação da variável '{id}' para injetar
+     esse dado no parametro 'id' do método*/
+    //@RequestBody -> Solicita informações vindas de 'Body' e injetará estes dados no parâmetro 'body'.
+    //@PathVariable -> Extrai valores de nossa URL.
+    //@RequestParam -> Extrai parâmetros de consulta de uma URL
+    public String helloWorldPost(@PathVariable("id") String id, @RequestParam (value = "filter", defaultValue = "nenhum") String filter, @RequestBody User body) {
+        return "Hello World " + filter;
     }
 }

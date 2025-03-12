@@ -12,6 +12,6 @@ public class HelloWorldService {
     //classes que farão a conexão com o banco de dados ficam concentradas nesta classa com Service
 
     public String helloWorld(String name) {
-        return "Hello intern " + name;
+        return "Hello World " + name;
     }
 }//No controller, acessar a classe de Service, pois ela contém a lógica.

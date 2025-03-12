@@ -14,5 +14,4 @@ public class FirsSpringAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(FirsSpringAppApplication.class, args);
     }
-
 }
