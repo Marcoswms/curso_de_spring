@@ -29,8 +29,8 @@ import org.springframework.web.bind.annotation.*;
                                  Neste caso será mapeado o caminho ("/hello-world")*/
 public class HelloWorldController {
 
-/* @Autowired -> Não há a necessidade de um construtor quando passamos esta anotação em uma dependência, pois fará
-                 a injeção de dependência automaticamente. */
+    /* @Autowired -> Não há a necessidade de um construtor quando passamos esta anotação em uma dependência, pois fará
+                     a injeção de dependência automaticamente. */
     @Autowired
     private HelloWorldService helloWorldService; // Dependência privada e atributo para o contrutor
 
@@ -48,12 +48,14 @@ public class HelloWorldController {
     }
 
     @PostMapping("/{id}") // Mapear uma requisição de Post.
-    /*("/{id}") -> Indica o que virá da URL e neste caso, receberá a informação da variável '{id}' para injetar
-     esse dado no parametro 'id' do método*/
-    //@RequestBody -> Solicita informações vindas de 'Body' e injetará estes dados no parâmetro 'body'.
-    //@PathVariable -> Extrai valores de nossa URL.
-    //@RequestParam -> Extrai parâmetros de consulta de uma URL
-    public String helloWorldPost(@PathVariable("id") String id, @RequestParam (value = "filter", defaultValue = "nenhum") String filter, @RequestBody User body) {
+    /* ("/{id}") -> Indica o que virá da URL e neste caso, receberá a informação da variável '{id}' para injetar
+       esse dado no parametro 'id' do método*/
+
+    public String helloWorldPost(@PathVariable("id") String id, @RequestParam(value = "filter", defaultValue = "nenhum")
+    String filter, @RequestBody User body) {
         return "Hello World " + filter;
     }
 }
+//@RequestBody -> Solicita informações vindas de 'Body' e injetará estes dados no parâmetro 'body'.
+//@PathVariable -> Extrai valores de nossa URL.
+//@RequestParam -> Extrai parâmetros de consulta de uma URL

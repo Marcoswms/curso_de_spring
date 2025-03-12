@@ -6,7 +6,7 @@ package com.kipper.firs_spring_app.domain;
 // @AllArgsConstructor -> Gerá o 'Constuctor' automaticamente
 
 public class User {
-    private String name = "Maria";
+    private String name;
     private String email;
 
     public User() {
